@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FiEdit } from "react-icons/fi";
-import { MdDeleteOutline } from "react-icons/md";
+import { MdDeleteOutline, MdAddCircleOutline } from "react-icons/md";
 const Skills = ({ sendData }) => {
   const [skills, setSkills] = useState([]);
   const [isUpdate, setIsUpdate] = useState(false);
@@ -25,7 +25,7 @@ const Skills = ({ sendData }) => {
       });
       setSkill("");
       setLevel(0);
-      setId(skills.length + 1)
+      setId(skills.length + 1);
       setIsUpdate(false);
     }
   };
@@ -37,6 +37,10 @@ const Skills = ({ sendData }) => {
   };
   const handleRemove = (skillId) => {
     setSkills([...skills.filter((s) => s.id !== skillId)]);
+    setIsUpdate(false);
+    setSkill("");
+    setLevel(0);
+    setId(skills.length + 1);
   };
   console.log(skills);
   sendData(skills);
@@ -44,7 +48,10 @@ const Skills = ({ sendData }) => {
     <section className="skills-section">
       <div className="flex gap-5 flex-wrap">
         <div className="mb-3 flex flex-col w-[80%]">
-          <label htmlFor="skill" className="font-[500] mb-1">
+          <label
+            htmlFor="skill"
+            className="font-[700] text-slate-900 capitalize mb-2"
+          >
             Skill
           </label>
           <input
@@ -54,11 +61,14 @@ const Skills = ({ sendData }) => {
             onChange={(e) => {
               setSkill(e.target.value);
             }}
-            className="bg-slate-50 focus:outline-0 placeholder:text-mainColor placeholder:text-[14px] focus:border-b-[2px] focus:border-mainColor px-3 py-2"
+            className="border-[1px] border-slate-200 rounded-md focus:outline-0 placeholder:text-slate-500 placeholder:text-[14px] focus:border-[1px] focus:border-mainColor px-3 py-2"
           />
         </div>
-        <div className="mb-3 flex flex-col w-[80%]">
-          <label htmlFor="level" className="font-[500] mb-1">
+        <div className="mb-3 relative flex flex-col w-[80%]">
+          <label
+            htmlFor="level"
+            className="font-[700] text-slate-900 capitalize mb-2"
+          >
             Level
           </label>
           <input
@@ -70,16 +80,26 @@ const Skills = ({ sendData }) => {
             onChange={(e) => {
               setLevel(e.target.value);
             }}
-            className="bg-slate-50 focus:outline-0 placeholder:text-mainColor placeholder:text-[14px] focus:border-b-[2px] focus:border-mainColor px-3 py-2"
+            className="bg-slate-50"
           />
-          {level}
+          <span className="absolute -top-[10px] left-[50%] bg-mainColor px-7 py-2 rounded-lg text-slate-50">{level}%</span>
         </div>
       </div>
       <button
-        className="bg-mainColor text-slate-50 rounded-md px-5 py-2"
+        className={`${
+          isUpdate ? "bg-green-600" : "bg-mainColor"
+        } hover:opacity-80 transition-all duration-300 text-slate-50 rounded-md px-5 py-2 capitalize`}
         onClick={handleClick}
       >
-        {isUpdate ? "update skill" : "add skill"}
+        {isUpdate ? (
+          <span className="flex items-center justify-center gap-3">
+            <FiEdit className="text-[20px]" /> update skill
+          </span>
+        ) : (
+          <span className="flex items-center justify-center gap-3">
+            <MdAddCircleOutline className="text-[20px]" /> add skill
+          </span>
+        )}
       </button>
       <div className="show-skills-list flex items-center gap-3 mt-5">
         {skills.map((s) => (
