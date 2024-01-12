@@ -46,7 +46,8 @@ const Skills = ({ sendData }) => {
   sendData(skills);
   return (
     <section className="skills-section">
-      <div className="flex gap-5 flex-wrap">
+        <h6 className='mb-7 bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-400 text-[35px] text-center font-[800] capitalize'>can you fill all inputs</h6>
+      <div className="flex gap-5 flex-wrap justify-center">
         <div className="mb-3 flex flex-col w-[80%]">
           <label
             htmlFor="skill"
@@ -82,26 +83,28 @@ const Skills = ({ sendData }) => {
             }}
             className="bg-slate-50 dark:bg-slate-800"
           />
-          <span className="absolute -top-[10px] left-[50%] bg-mainColor px-7 py-2 rounded-lg text-slate-50">{level}%</span>
+          <span className="absolute -top-[10px] left-[48%] bg-mainColor px-7 py-2 rounded-lg text-slate-50">{level}%</span>
         </div>
       </div>
-      <button
-        className={`${
-          isUpdate ? "bg-green-600" : "bg-mainColor"
-        } hover:opacity-80 transition-all duration-300 text-slate-50 rounded-md px-5 py-2 capitalize`}
-        onClick={handleClick}
-      >
-        {isUpdate ? (
-          <span className="flex items-center justify-center gap-3">
-            <FiEdit className="text-[20px]" /> update skill
-          </span>
-        ) : (
-          <span className="flex items-center justify-center gap-3">
-            <MdAddCircleOutline className="text-[20px]" /> add skill
-          </span>
-        )}
-      </button>
-      <div className="show-skills-list flex items-center gap-3 mt-5">
+      <div className="text-center mt-5">
+        <button
+          className={`${
+            isUpdate ? "bg-green-600" : "bg-mainColor"
+          } hover:opacity-80 transition-all duration-300 text-slate-50 rounded-md px-5 py-2 capitalize`}
+          onClick={handleClick}
+        >
+          {isUpdate ? (
+            <span className="flex items-center justify-center gap-3">
+              <FiEdit className="text-[20px]" /> update skill
+            </span>
+          ) : (
+            <span className="flex items-center justify-center gap-3">
+              <MdAddCircleOutline className="text-[20px]" /> add skill
+            </span>
+          )}
+        </button>
+      </div>
+      <div className="show-skills-list flex items-center flex-wrap gap-3 mt-5">
         {skills.map((s) => (
           <div
             className="skill-item border-[1px] border-mainColor rounded-md"

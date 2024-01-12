@@ -10,7 +10,7 @@ const Header = () => {
   }
   return (
     <header className='h-[90px]'>
-       <div className="header dark:bg-slate-800 px-10 h-full border-b-2 border-slate-200 flex items-center justify-between">
+       <div className="header dark:bg-slate-800 px-10 h-full border-b-2 border-slate-200 dark:border-slate-700 flex items-center justify-between">
         <div className="logo">
           <img src={logo} alt="app-logo" width={100} />
         </div>

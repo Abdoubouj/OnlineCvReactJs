@@ -12,3 +12,7 @@ a.active{
 .content-right{
   height: calc(100vh - 90px);
 }
+::selection{
+  background: #00A6ED;
+  color: #fff;
+}
