@@ -7,6 +7,7 @@ import Experiences from './features/Experiences'
 import Skills from './features/Skills'
 import Languages from './features/Languages'
 import { useState } from 'react'
+import Preview from './components/Preview'
 function App() {
   const [personnalInfoData , setPersonnalInfoData] = useState({});
   const [skillsData,setSkillsData] = useState([]);
@@ -30,11 +31,8 @@ function App() {
       <Route path='/languages' element={<Languages/>}/>
     </Routes>
       </div>
-    <div className="content-right rounded-md flex-1 bg-slate-500">
-      <img src={personnalInfoData.image} alt="#" />
-       {personnalInfoData.firstName}
-       {personnalInfoData.lastName}
-       {personnalInfoData.email}
+    <div className="content-right rounded-md shadow-2xl shadow-slate-950 dark:shadow-slate-50 w-[600px] flex-2">
+      <Preview personnalInfo={personnalInfoData}/>
     </div>
     </main>
     </>
