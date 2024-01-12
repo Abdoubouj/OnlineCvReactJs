@@ -10,10 +10,25 @@ const Languages = () => {
   const [id, setId] = useState(1);
 
   const handleClick = () => {
-    setLanguages([...languages, { id, language, level: parseInt(level) }]);
-    setLanguage("");
-    setLevel(0);
-    setId((prev) => prev + 1);
+    if(!isUpdate){
+      setLanguages([...languages, { id, language, level: parseInt(level) }]);
+      setLanguage("");
+      setLevel(0);
+      setId((prev) => prev + 1);
+    }else{
+      setLanguages(prev=>{
+        return prev.map((lang)=>{
+          if(lang.id === id){
+            return {...lang,...{id,language,level:parseInt(level)}}
+          }
+          return lang
+        })
+      })
+      setLanguage("");
+      setLevel(0);
+      setId(languages.length +1);
+      setIsUpdate(false);
+    }
   };
   const handleRemove = (langId) => {
     setLanguages([...languages.filter((lang) => lang.id !== langId)]);
@@ -40,7 +55,7 @@ const Languages = () => {
         <div className="mb-3 flex flex-col w-[80%]">
           <label
             htmlFor="language"
-            className="font-[700] text-slate-900 capitalize mb-2"
+            className="font-[700] dark:text-slate-50 text-slate-900 capitalize mb-2"
           >
             Language
           </label>
@@ -49,7 +64,7 @@ const Languages = () => {
             onChange={(e) => {
               setLanguage(e.target.value);
             }}
-            className="border-[1px] border-slate-200 rounded-md focus:outline-0 placeholder:text-slate-500 placeholder:text-[14px] focus:border-[1px] focus:border-mainColor px-3 py-2"
+            className="dark:bg-slate-800 dark:text-slate-100 border-[1px] border-slate-200 rounded-md focus:outline-0 placeholder:text-slate-500 placeholder:text-[14px] focus:border-[1px] focus:border-mainColor px-3 py-2"
           >
             <option value="chose language here">chose language here </option>
             {all_languages.map((lang, index) => (
@@ -62,7 +77,7 @@ const Languages = () => {
         <div className="mb-3 relative flex flex-col w-[80%]">
           <label
             htmlFor="level"
-            className="font-[700] text-slate-900 capitalize mb-2"
+            className="font-[700] dark:text-slate-50 text-slate-900 capitalize mb-2"
           >
             Level
           </label>
@@ -75,7 +90,7 @@ const Languages = () => {
             onChange={(e) => {
               setLevel(e.target.value);
             }}
-            className="bg-slate-50"
+            className="bg-slate-50 dark:bg-slate-800"
           />
           <span className="absolute -top-[10px] left-[50%] bg-mainColor px-7 py-2 rounded-lg text-slate-50">
             {level}%
@@ -101,13 +116,13 @@ const Languages = () => {
       <div className="show-languages-list flex items-center gap-3 mt-5">
         {languages.map((lang) => (
           <div
-            className="skill-item  border-[1px] border-slate-300 rounded-lg"
+            className="language-item  border-[1px] border-slate-300 rounded-lg"
             key={lang.id}
           >
-            <div className="skill py-1 text-center rounded-t-lg bg-slate-100 capitalize text-mainColor">
+            <div className="language dark:bg-slate-700 py-1 text-center rounded-t-lg bg-slate-100 capitalize text-mainColor">
               {lang.language}
             </div>
-            <div className="level py-2 font-bold text-center">
+            <div className="level dark:text-slate-50 py-2 font-bold text-center">
               {lang.level}%
             </div>
             <hr />

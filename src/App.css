@@ -6,7 +6,7 @@
   font-family:"Nunito",sans-serif ;
 }
 a.active{
-  background: #00A6ED;
+  background: #00A6ED !important;
   color: #fff;
 }
 .content-right{

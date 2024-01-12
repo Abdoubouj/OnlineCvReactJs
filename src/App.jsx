@@ -20,7 +20,7 @@ function App() {
   return (
     <>
     <Header/>
-    <main className='flex p-2'>
+    <main className='flex p-2 dark:bg-slate-800'>
       <div className="content-left p-2 flex-1">
     <Routes>
       <Route path='/' element={<PersonnalInfo sendData={handleDataFromPersonnalInfo}/>}/>

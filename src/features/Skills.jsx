@@ -50,7 +50,7 @@ const Skills = ({ sendData }) => {
         <div className="mb-3 flex flex-col w-[80%]">
           <label
             htmlFor="skill"
-            className="font-[700] text-slate-900 capitalize mb-2"
+            className="font-[700] text-slate-900 capitalize mb-2 dark:text-slate-50"
           >
             Skill
           </label>
@@ -61,13 +61,13 @@ const Skills = ({ sendData }) => {
             onChange={(e) => {
               setSkill(e.target.value);
             }}
-            className="border-[1px] border-slate-200 rounded-md focus:outline-0 placeholder:text-slate-500 placeholder:text-[14px] focus:border-[1px] focus:border-mainColor px-3 py-2"
+            className="border-[1px] dark:text-slate-50 dark:placeholder:text-slate-500 dark:bg-slate-800 border-slate-200 rounded-md focus:outline-0 placeholder:text-slate-500 placeholder:text-[14px] focus:border-[1px] focus:border-mainColor px-3 py-2"
           />
         </div>
         <div className="mb-3 relative flex flex-col w-[80%]">
           <label
             htmlFor="level"
-            className="font-[700] text-slate-900 capitalize mb-2"
+            className="font-[700]  text-slate-900 capitalize mb-2 dark:text-slate-50"
           >
             Level
           </label>
@@ -80,7 +80,7 @@ const Skills = ({ sendData }) => {
             onChange={(e) => {
               setLevel(e.target.value);
             }}
-            className="bg-slate-50"
+            className="bg-slate-50 dark:bg-slate-800"
           />
           <span className="absolute -top-[10px] left-[50%] bg-mainColor px-7 py-2 rounded-lg text-slate-50">{level}%</span>
         </div>
@@ -107,14 +107,14 @@ const Skills = ({ sendData }) => {
             className="skill-item border-[1px] border-mainColor rounded-md"
             key={s.id}
           >
-            <div className="skill text-center bg-mainColor capitalize text-slate-50">
+            <div className="skill dark:bg-slate-700 font-[800] py-1 text-center rounded-t-lg bg-slate-100 capitalize text-mainColor">
               {s.skill}
             </div>
-            <div className="level py-2 text-center">{s.level}%</div>
+            <div className="level py-2 text-center dark:text-slate-50">{s.level}%</div>
             <hr />
             <div className="actions flex gap-2 items-center p-2">
               <button
-                className="bg-green-700 rounded-lg text-slate-50 p-2"
+                className="border-[1px] border-green-600 rounded-lg text-green-600 p-2"
                 onClick={() => {
                   handleUpdate(s);
                 }}
@@ -122,7 +122,7 @@ const Skills = ({ sendData }) => {
                 <FiEdit />
               </button>
               <button
-                className="bg-red-700 rounded-lg text-slate-50 p-2"
+                className="border-[1px] border-red-600 rounded-lg text-red-600 p-2"
                 onClick={() => {
                   handleRemove(s.id);
                 }}
