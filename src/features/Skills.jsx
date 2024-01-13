@@ -7,13 +7,20 @@ const Skills = ({ sendData }) => {
   const [id, setId] = useState(1);
   const [skill, setSkill] = useState("");
   const [level, setLevel] = useState(0);
-
+  const [error,setError] = useState({});
   const handleClick = () => {
-    if (!isUpdate) {
-      setSkills([...skills, { id, skill, level: parseInt(level) }]);
-      setSkill("");
-      setLevel(0);
-      setId((prev) => prev + 1);
+    if(skill && level){
+      if (!isUpdate) {
+        const checkSkill = skills.find(s=>s.skill === skill);
+        if(!checkSkill){
+          setSkills([...skills, { id, skill, level: parseInt(level) }]);
+          setSkill("");
+          setLevel(0);
+          setId((prev) => prev + 1);
+          delete error.repeatError;
+        }else{
+          setError({...error,repeatError:"skill is already exist"})
+        }
     } else {
       setSkills((prev) => {
         return prev.map((s) => {
@@ -28,7 +35,14 @@ const Skills = ({ sendData }) => {
       setId(skills.length + 1);
       setIsUpdate(false);
     }
+    delete error.message;
+  }else{
+    if(!error['message']){
+      setError({...error,message:"skill or level does't filled"})
+    }
+  }
   };
+  console.log(error);
   const handleUpdate = (s) => {
     setIsUpdate(true);
     setId(s.id);
@@ -85,6 +99,14 @@ const Skills = ({ sendData }) => {
           />
           <span className="absolute -top-[10px] left-[48%] bg-mainColor px-7 py-2 rounded-lg text-slate-50">{level}%</span>
         </div>
+        <ul className="errors w-[80%] bg-red-600 text-red-100 font-[600] text-[15px] rounded-md">
+        {error.message &&
+          <li className="m-2"> {error.message}</li>
+        }
+        {error.repeatError &&
+          <li className="m-2">{error.repeatError}</li>
+        }
+        </ul>
       </div>
       <div className="text-center mt-5">
         <button

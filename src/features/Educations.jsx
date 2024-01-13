@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FiEdit } from 'react-icons/fi';
 import { MdAddCircleOutline, MdArrowRightAlt, MdDeleteOutline } from 'react-icons/md';
 
-const Educations = () => {
+const Educations = ({sendData}) => {
   const [educations,setEducations] = useState([]);
   const [isUpdate,setIsUpdate] = useState(false);
   const [id,setId] = useState(1);
@@ -67,6 +67,7 @@ const Educations = () => {
     setEndDate(edu.endDate);
     setPresent(edu.present);
   };
+  sendData(educations);
   console.log(educations);
   return (
        <section className="skills-section">

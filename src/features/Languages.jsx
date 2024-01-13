@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { all_languages } from "../data/allLangagesData";
 import { FiEdit } from "react-icons/fi";
 import { MdAddCircleOutline, MdDeleteOutline } from "react-icons/md";
-const Languages = () => {
+const Languages = ({sendData}) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [languages, setLanguages] = useState([]);
   const [language, setLanguage] = useState("");
@@ -48,6 +48,7 @@ const Languages = () => {
         setId([...languages].length + 1)
        }
   }
+  sendData(languages);
   console.log(languages);
   return (
     <section className="languages-section">
