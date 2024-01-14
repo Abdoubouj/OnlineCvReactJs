@@ -33,7 +33,7 @@ function App() {
   return (
     <>
     <Header/>
-    <main className='flex p-2 dark:bg-slate-800'>
+    <main className='flex flex-col items-center xl:flex-row p-2 dark:bg-slate-800'>
       <div className="content-left p-2 flex-1">
     <Routes>
       <Route path='/' element={<PersonnalInfo sendData={handleDataFromPersonnalInfo}/>}/>
@@ -43,7 +43,7 @@ function App() {
       <Route path='/languages' element={<Languages sendData={handleDataFromLanguages}/>}/>
     </Routes>
       </div>
-    <div className="content-right h-[800px] rounded-md shadow-2xl shadow-slate-950 dark:shadow-slate-50 w-[600px] flex-2">
+    <div className="content-right h-[800px] rounded-md shadow-2xl shadow-slate-950 dark:shadow-slate-50 w-[300px] sm:w-[600px] flex-2">
       <Preview personnalInfo={personnalInfoData} skills={skillsData} languages={languagesData} educations={educationsData} experiences={experiencesData}/>
     </div>
     </main>
