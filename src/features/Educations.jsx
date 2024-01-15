@@ -72,8 +72,8 @@ const Educations = ({sendData}) => {
   return (
        <section className="skills-section">
                 <h6 className='mb-7 bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-400 text-[35px] text-center font-[800] capitalize'>can you fill all inputs</h6>
-      <div className="flex gap-5 justify-center flex-wrap">
-        <div className="mb-3 flex flex-col w-[40%]">
+      <div className="flex flex-col md:flex-row gap-5 justify-center items-start flex-wrap">
+        <div className="mb-3 flex flex-col w-full md:w-[40%]">
           <label
             htmlFor="school"
             className="font-[700] text-slate-900 capitalize mb-2 dark:text-slate-50"
@@ -90,7 +90,7 @@ const Educations = ({sendData}) => {
             className="border-[1px] dark:text-slate-50 dark:placeholder:text-slate-500 dark:bg-slate-800 border-slate-200 rounded-md focus:outline-0 placeholder:text-slate-500 placeholder:text-[14px] focus:border-[1px] focus:border-mainColor px-3 py-2"
           />
         </div>
-        <div className="mb-3 flex flex-col w-[40%]">
+        <div className="mb-3 flex flex-col w-full md:w-[40%]">
           <label
             htmlFor="degree"
             className="font-[700] text-slate-900 capitalize mb-2 dark:text-slate-50"
@@ -107,7 +107,7 @@ const Educations = ({sendData}) => {
             className="border-[1px] dark:text-slate-50 dark:placeholder:text-slate-500 dark:bg-slate-800 border-slate-200 rounded-md focus:outline-0 placeholder:text-slate-500 placeholder:text-[14px] focus:border-[1px] focus:border-mainColor px-3 py-2"
           />
         </div>
-        <div className="mb-3 flex flex-col w-[40%]">
+        <div className="mb-3 flex flex-col w-full md:w-[40%]">
           <label
             htmlFor="field"
             className="font-[700] text-slate-900 capitalize mb-2 dark:text-slate-50"
@@ -124,7 +124,7 @@ const Educations = ({sendData}) => {
             className="border-[1px] dark:text-slate-50 dark:placeholder:text-slate-500 dark:bg-slate-800 border-slate-200 rounded-md focus:outline-0 placeholder:text-slate-500 placeholder:text-[14px] focus:border-[1px] focus:border-mainColor px-3 py-2"
           />
         </div>
-        <div className="mb-3 flex flex-col w-[40%]">
+        <div className="mb-3 flex flex-col w-full md:w-[40%]">
           <label
             htmlFor="startDate"
             className="font-[700] text-slate-900 capitalize mb-2 dark:text-slate-50"
@@ -162,7 +162,7 @@ const Educations = ({sendData}) => {
         </label>
       </div>
       {!present &&
-        <div className="mb-3 flex flex-col w-[40%]">
+        <div className="mb-3 flex flex-col w-full md:w-[40%]">
           <label
             htmlFor="endDate"
             className="font-[700] text-slate-900 capitalize mb-2 dark:text-slate-50"

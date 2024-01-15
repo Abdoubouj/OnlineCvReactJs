@@ -16,12 +16,12 @@ const Header = () => {
         <div className="logo">
           <img src={logo} alt="app-logo" width={100} />
         </div>
-        <nav className={`${showMenu ?'flex fixed p-10 bg-slate-50 h-screen top-0 left-0':'hidden'} lg:bg-inherit lg:h-full flex-col lg:flex lg:flex-row lg:static lg:items-center lg:justify-center gap-5`}>
-          <NavLink className="py-2 text-[13px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/">Personnal Informations</NavLink>
-          <NavLink className="py-2 text-[13px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/educations">Education</NavLink>
-          <NavLink className="py-2 text-[13px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/experiences">Experiences</NavLink>
-          <NavLink className="py-2 text-[13px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/skills">Skills</NavLink>
-          <NavLink className="py-2 text-[13px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/languages">Languages</NavLink>
+        <nav className={`${showMenu ?'flex fixed z-10 p-10 bg-slate-50 h-screen top-0 left-0':'hidden'} lg:bg-inherit lg:h-full flex-col lg:flex lg:flex-row lg:static lg:items-center lg:justify-center gap-5`}>
+          <NavLink className="py-2 text-[16px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/">Personnal Informations</NavLink>
+          <NavLink className="py-2 text-[16px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/educations">Education</NavLink>
+          <NavLink className="py-2 text-[16px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/experiences">Experiences</NavLink>
+          <NavLink className="py-2 text-[16px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/skills">Skills</NavLink>
+          <NavLink className="py-2 text-[16px] px-2 lg:px-5 lg:text-[15px] transition duration-300 ease-linear text-mainColor dark:bg-slate-700 bg-slate-50 border-[1px] border-mainColor rounded-2xl" to="/languages">Languages</NavLink>
         </nav>
         <div className="flex gap-2 items-center text-[22px]  text-mainColor">
           <button className="current-mode" onClick={handleChangeMode}>

@@ -53,8 +53,8 @@ const Languages = ({sendData}) => {
   return (
     <section className="languages-section">
         <h6 className='mb-7 bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-400 text-[35px] text-center font-[800] capitalize'>can you fill all inputs</h6>
-      <div className="flex gap-5 flex-wrap justify-center">
-        <div className="mb-3 flex flex-col w-[80%]">
+      <div className="flex flex-col md:flex-row gap-5 justify-center items-start flex-wrap">
+        <div className="mb-3 flex flex-col w-[300px] sm-w-full md:w-[82%]">
           <label
             htmlFor="language"
             className="font-[700] dark:text-slate-50 text-slate-900 capitalize mb-2"

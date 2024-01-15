@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import {FaPhone} from "react-icons/fa6"
 import { MdEmail, MdLocationCity, MdLocationPin } from 'react-icons/md'
-const Preview = ({personnalInfo , skills ,languages ,educations ,experiences}) => {
+const Preview = forwardRef(({personnalInfo , skills ,languages ,educations ,experiences},ref) => {
   return (
-    <div className="preview w-full h-full flex">
-        <div className="side-left overflow-hidden w-[120px] sm:w-[230px] bg-blue-950 min-h-full">
+    <div className="preview w-full h-full flex" ref={ref}>
+        <div className="side-left overflow-hidden w-[120px] sm:w-[270px] bg-blue-950 min-h-full">
             <div className="cv-img flex justify-center mt-3">
                 <img src={personnalInfo?.image} className='rounded-full border-4 border-slate-50 w-[80px] h-[80px] sm:w-[160px] object-cover sm:h-[160px]' alt="#" />
             </div>
@@ -41,7 +41,7 @@ const Preview = ({personnalInfo , skills ,languages ,educations ,experiences}) =
                   </ul>
             </div>
         </div>
-        <div className="side-right bg-slate-50 text-slate-700 min-h-full w-[180px] sm:w-[370px]">
+        <div className="side-right bg-slate-50 text-slate-700 min-h-full w-[180px] sm:w-[530px]">
            <h1 className='text-center uppercase text-[25px] mt-4 font-[700]'>{personnalInfo.firstName} {personnalInfo.lastName}</h1>
            <h6 className='text-center capitalize text-[16px] font-[400]'>{personnalInfo.speciality}</h6>
            <div className="profile px-3 mt-9 text-slate-700">
@@ -92,6 +92,6 @@ const Preview = ({personnalInfo , skills ,languages ,educations ,experiences}) =
         </div>
     </div>
   )
-}
+})
 
 export default Preview
